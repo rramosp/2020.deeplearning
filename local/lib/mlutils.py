@@ -677,3 +677,16 @@ def plot_confusion_matrix(y_true, y_pred, classes,
                     color="white" if cm[i, j] > thresh else "black")
     fig.tight_layout()
     return ax
+
+def figures_grid(nfigsx, nfigsy, figs_functions, figsize=None):
+    if figsize is None:
+        figsize = (nfigsx*3, nfigsy*3)
+        
+    fig = plt.figure(figsize=figsize)
+    i = 1
+    for y in range(1, nfigsy+1):
+        for x in range(1,nfigsx+1):
+            if i<=len(figs_functions):
+                axis = fig.add_subplot(nfigsy, nfigsx, i)
+                figs_functions[i-1]()
+            i+=1
