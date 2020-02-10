@@ -65,9 +65,7 @@ Si se te requiere tendrás que realizar una **breve presentación** de tu proyec
 
  ## Registro y materiales
  
- - [Listado de estudiantes](https://docs.google.com/spreadsheets/d/1jbCc0ZHC5qFMhwMEpoCgSFzHwP6lx_V77E4Blh6Tk38/edit#gid=2001230691)
- - [Máquina virtual del curso](https://drive.google.com/file/d/1VI5oU_gQQ0LO_Eoiq8N66j1zgi8-vC6j/view?usp=sharing)
- 
+ - [Máquina virtual del curso](https://drive.google.com/file/d/1ybeLv2nwBfssKN0-ulbmw9o_20SpjF7W/view?usp=sharing)
 
 ## Lecturas recomendadas
 
