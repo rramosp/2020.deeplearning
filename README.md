@@ -12,7 +12,7 @@
         17/feb    2     U1.Intro.NN               Lab 1.1      
         24/feb    3     U2.NN.Archs.Train.Reg     Lab 2.1
         02/mar    4     U2.NN.Init.Batch.Vanish   Lab 2.2
-        09/mar    5     Labs                      Parcial        15/mar deadline U2.Labs             
+        09/mar    5     Labs                      Labs           15/mar deadline U2.Labs             
         16/mar    6     U3.CNN.ConvOp.Archs       Lab 3.1 
         23/mar    6     U3.CNN.Classf.Semg.Detect Lab 3.2        30/mar deadline U3.05-U3.11
         --------------------- VACACIONES --------------------------------
@@ -26,8 +26,7 @@
     
 ## Evaluación
  
-     10% Parcial
-     10% Lab1 + Lab 2
+     20% Lab1 + Lab 2
      15% Lab 3
      15% Lab 4
      25% U3.Proyecto
