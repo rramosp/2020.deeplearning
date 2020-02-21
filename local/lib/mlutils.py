@@ -690,3 +690,15 @@ def figures_grid(nfigsx, nfigsy, figs_functions, figsize=None):
                 axis = fig.add_subplot(nfigsy, nfigsx, i)
                 figs_functions[i-1]()
             i+=1
+
+def make_graph(f, *args, logdir='logs'):
+    logdir = './%s/%s_graph'%(logdir, f.__name__)
+    writer = tf.summary.create_file_writer(logdir)
+    tf.summary.trace_on(graph=True)
+
+    tf.autograph.trace(f)
+    f(*args)
+    with writer.as_default():
+        tf.summary.trace_export(name="tf.function '%s'"%f.__name__,step=0)
+
+    tf.summary.trace_off()
