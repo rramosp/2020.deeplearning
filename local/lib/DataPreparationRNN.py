@@ -2,6 +2,18 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 from sklearn.metrics import mean_squared_error
+import seaborn as sns
+import pandas as pd
+from sklearn.utils import check_array
+
+def mean_absolute_percentage_error(y_true, y_pred): 
+    #y_true, y_pred = check_array(y_true, y_pred)
+
+    ## Note: does not handle mix 1d representation
+    #if _is_1d(y_true): 
+    #    y_true, y_pred = _check_1d_array(y_true, y_pred)
+
+    return np.mean(np.abs((y_true - y_pred) / y_true)) * 100
 #split a univariate sequence into samples
 def split_sequence(sequence, n_steps):
 	X, y = list(), list()
@@ -46,6 +58,7 @@ def PintaResultado(dataset,trainPredict,testPredict,look_back):
 	#testPredictPlot[len(trainPredict)+(look_back*2)+1:len(dataset)-1, :] = testPredict
 	#testPredictPlot[len(dataset)-len(testPredict):len(dataset)+1, :] = testPredict
 	# plot baseline and predictions
+	plt.figure(figsize=(10,4))
 	plt.plot(dataset,label='Original Time serie')
 	plt.plot(trainPredictPlot,label='Training prediction')
 	plt.plot(testPredictPlot,label='Test prediction')
@@ -67,6 +80,10 @@ def EstimaRMSE(model,X_train,X_test,y_train,y_test,scaler,look_back):
 	print('Train Score: %.2f RMSE' % (trainScore))
 	testScore = math.sqrt(mean_squared_error(testY[0], testPredict[:,0]))
 	print('Test Score: %.2f RMSE' % (testScore))
+	trainScoreMAPE = mean_absolute_percentage_error(trainY[0], trainPredict[:,0])
+	testScoreMAPE = mean_absolute_percentage_error(trainY[0], trainPredict[:,0])
+	print('Train Score: %.2f MAPE' % (trainScoreMAPE))
+	print('Test Score: %.2f MAPE' % (testScoreMAPE))
 	return trainPredict, testPredict
 
 def EstimaRMSE_RNN(model,X_train,X_test,y_train,y_test,scaler,look_back,n_steps):
@@ -83,6 +100,10 @@ def EstimaRMSE_RNN(model,X_train,X_test,y_train,y_test,scaler,look_back,n_steps)
 	print('Train Score: %.2f RMSE' % (trainScore))
 	testScore = math.sqrt(mean_squared_error(testY[0], testPredict[:,0]))
 	print('Test Score: %.2f RMSE' % (testScore))
+	trainScoreMAPE = mean_absolute_percentage_error(trainY[0], trainPredict[:,0])
+	testScoreMAPE = mean_absolute_percentage_error(trainY[0], trainPredict[:,0])
+	print('Train Score: %.2f MAPE' % (trainScoreMAPE))
+	print('Test Score: %.2f MAPE' % (testScoreMAPE))
 	return trainPredict, testPredict
 
 def EstimaRMSE_MultiStep(model,X_train,X_test,y_train,y_test,scaler,look_back,n_steps):
@@ -188,3 +209,52 @@ def EstimaRMSE_RNN_MultiStepEncoDeco(model,X_train,X_test,y_train,y_test,scaler,
 	testScore = math.sqrt(mean_squared_error(testY.flatten().reshape(-1, 1), testPredict.reshape(-1, 1)))
 	print('Test Score: %.2f RMSE' % (testScore))
 	return trainPredict, testPredict
+	
+def PlotValidationTimeSeries(datasetO):
+	N=np.max(datasetO.index)
+	fig, ax = plt.subplots(figsize=(10,7), sharex=True)
+	datasetO.plot(0,1,figsize=(10,4), ax=ax)
+	ax.axvspan(datasetO.index[0], datasetO.index[int(N*0.6)], color=sns.xkcd_rgb['grey'], alpha=0.5)
+	ax.axvspan(datasetO.index[int(N*0.6)], datasetO.index[int(N*0.8)],color=sns.xkcd_rgb['light blue'], alpha=0.5)
+	ax.axvspan(datasetO.index[int(N*0.8)], datasetO.index[N],color=sns.xkcd_rgb['light pink'], alpha=0.5)
+	plt.text(datasetO.index[int(N*0.2)], 620, "60% Training set")
+	plt.text(datasetO.index[int(N*0.62)], 620, "20% Validation set")
+	plt.text(datasetO.index[int(N*0.82)], 620, "20% Test set")
+	plt.legend().remove()
+
+def PlotCrossvalidationTS():
+	n_datasets = 20
+	plt.figure(figsize=(10,5))
+	for i in range(n_datasets):
+		texto = 'Split'+ ' ' + str(i+1)
+		plt.text(-2,8-i*0.4,texto)
+		plt.arrow(0, 8-i*0.4, 27, 0, alpha=0.3, head_width=0.1, head_length=0.5, fc='k', ec='k')
+		m1 = np.arange(1,27)
+		y = np.r_[np.zeros(i+6, dtype=int),np.ones(1,dtype=int),2*np.ones(19-i,dtype=int)]
+		x2 = [8-i*0.4]*len(m1)
+		plt.scatter(m1[:i+6], x2[:i+6] , color='b', alpha=0.5, s=70)
+		plt.scatter(m1[i+6],  x2[i+6], color= 'r', alpha=0.5, s=70)
+		plt.scatter(m1[i+7:], x2[i+7:], color ='grey', alpha=0.5, s=70)
+	plt.text(28,8,'Time')
+	plt.axis("off")
+	plt.show()
+
+def PlotCrossvalidationTS_Gap():
+	n_datasets = 16
+	plt.figure(figsize=(10,5))
+	for i in range(n_datasets):
+		texto = 'Split'+ ' ' +str(i+1)
+		plt.text(-2,8-i*0.4,texto)
+		plt.arrow(0, 8-i*0.4, 27, 0, alpha=0.3, head_width=0.1, head_length=0.5, fc='k', ec='k')
+		m1 = np.arange(1,27)
+		y = np.r_[np.zeros(i+6, dtype=int),np.ones(1,dtype=int),2*np.ones(19-i,dtype=int)]
+		x2 = [8-i*0.4]*len(m1)
+		plt.scatter(m1[:i+6], x2[:i+6] , color='b', alpha=0.5, s=70)
+		plt.scatter(m1[i+6:i+10], x2[i+6:i+10], color ='grey', alpha=0.5, s=70)
+		plt.scatter(m1[i+10],  x2[i+10], color= 'r', alpha=0.5, s=70)
+		plt.scatter(m1[i+11:], x2[i+11:], color ='grey', alpha=0.5, s=70)
+	plt.text(28,8,'Time')
+	plt.axis("off")
+	plt.show()
+
+
