@@ -54,7 +54,11 @@ def PintaResultado(dataset,trainPredict,testPredict,look_back):
 	# shift test predictions for plotting
 	testPredictPlot = np.empty_like(dataset+1)
 	testPredictPlot[:, :] = np.nan
-	testPredictPlot[len(trainPredict)+(look_back*2):len(dataset), :] = testPredict
+	Ntest = len(testPredict)
+	NtestSpace = len(dataset)+1 - (len(trainPredict)+(look_back*2))
+	restante = NtestSpace - Ntest
+	print(restante)
+	testPredictPlot[len(trainPredict)+(look_back*2):len(dataset)+1-restante, :] = testPredict
 	#testPredictPlot[len(trainPredict)+(look_back*2)+1:len(dataset)-1, :] = testPredict
 	#testPredictPlot[len(dataset)-len(testPredict):len(dataset)+1, :] = testPredict
 	# plot baseline and predictions
@@ -81,7 +85,7 @@ def EstimaRMSE(model,X_train,X_test,y_train,y_test,scaler,look_back):
 	testScore = math.sqrt(mean_squared_error(testY[0], testPredict[:,0]))
 	print('Test Score: %.2f RMSE' % (testScore))
 	trainScoreMAPE = mean_absolute_percentage_error(trainY[0], trainPredict[:,0])
-	testScoreMAPE = mean_absolute_percentage_error(trainY[0], trainPredict[:,0])
+	testScoreMAPE = mean_absolute_percentage_error(testY[0], testPredict[:,0])
 	print('Train Score: %.2f MAPE' % (trainScoreMAPE))
 	print('Test Score: %.2f MAPE' % (testScoreMAPE))
 	return trainPredict, testPredict
@@ -101,7 +105,7 @@ def EstimaRMSE_RNN(model,X_train,X_test,y_train,y_test,scaler,look_back,n_steps)
 	testScore = math.sqrt(mean_squared_error(testY[0], testPredict[:,0]))
 	print('Test Score: %.2f RMSE' % (testScore))
 	trainScoreMAPE = mean_absolute_percentage_error(trainY[0], trainPredict[:,0])
-	testScoreMAPE = mean_absolute_percentage_error(trainY[0], trainPredict[:,0])
+	testScoreMAPE = mean_absolute_percentage_error(testY[0], testPredict[:,0])
 	print('Train Score: %.2f MAPE' % (trainScoreMAPE))
 	print('Test Score: %.2f MAPE' % (testScoreMAPE))
 	return trainPredict, testPredict
@@ -131,6 +135,10 @@ def EstimaRMSE_MultiStep(model,X_train,X_test,y_train,y_test,scaler,look_back,n_
 	print('Train Score: %.2f RMSE' % (trainScore))
 	testScore = math.sqrt(mean_squared_error(testY[0], testPredict[:,0]))
 	print('Test Score: %.2f RMSE' % (testScore))
+	trainScoreMAPE = mean_absolute_percentage_error(trainY.reshape(-1, 1), trainPredict.reshape(-1, 1))
+	testScoreMAPE = mean_absolute_percentage_error(testY[0], testPredict[:,0])
+	print('Train Score: %.2f MAPE' % (trainScoreMAPE))
+	print('Test Score: %.2f MAPE' % (testScoreMAPE))
 	return trainPredict, testPredict
 
 def EstimaRMSE_MultiOuput(model,X_train,X_test,y_train,y_test,scaler,look_back):
@@ -147,6 +155,10 @@ def EstimaRMSE_MultiOuput(model,X_train,X_test,y_train,y_test,scaler,look_back):
 	print('Train Score: %.2f RMSE' % (trainScore))
 	testScore = math.sqrt(mean_squared_error(testY[0], testPredict[:,0]))
 	print('Test Score: %.2f RMSE' % (testScore))
+	trainScoreMAPE = mean_absolute_percentage_error(trainY[0], trainPredict[:,0])
+	testScoreMAPE = mean_absolute_percentage_error(testY[0], testPredict[:,0])
+	print('Train Score: %.2f MAPE' % (trainScoreMAPE))
+	print('Test Score: %.2f MAPE' % (testScoreMAPE))
 	return trainPredict, testPredict
 
 def EstimaRMSE_RNN_MultiStep(model,X_train,X_test,y_train,y_test,scaler,look_back,n_steps,flag):
@@ -190,6 +202,10 @@ def EstimaRMSE_RNN_MultiStep(model,X_train,X_test,y_train,y_test,scaler,look_bac
 	print('Train Score: %.2f RMSE' % (trainScore))
 	testScore = math.sqrt(mean_squared_error(testY.reshape(-1, 1), testPredict.reshape(-1, 1)))
 	print('Test Score: %.2f RMSE' % (testScore))
+	trainScoreMAPE = mean_absolute_percentage_error(trainY.reshape(-1, 1), trainPredict.reshape(-1, 1))
+	testScoreMAPE = mean_absolute_percentage_error(testY.reshape(-1, 1), testPredict.reshape(-1, 1))
+	print('Train Score: %.2f MAPE' % (trainScoreMAPE))
+	print('Test Score: %.2f MAPE' % (testScoreMAPE))
 	return trainPredict, testPredict
 
 def EstimaRMSE_RNN_MultiStepEncoDeco(model,X_train,X_test,y_train,y_test,scaler,look_back,n_steps):
@@ -208,6 +224,10 @@ def EstimaRMSE_RNN_MultiStepEncoDeco(model,X_train,X_test,y_train,y_test,scaler,
 	print('Train Score: %.2f RMSE' % (trainScore))
 	testScore = math.sqrt(mean_squared_error(testY.flatten().reshape(-1, 1), testPredict.reshape(-1, 1)))
 	print('Test Score: %.2f RMSE' % (testScore))
+	trainScoreMAPE = mean_absolute_percentage_error(trainY.flatten().reshape(-1, 1), trainPredict.reshape(-1, 1))
+	testScoreMAPE = mean_absolute_percentage_error(testY.flatten().reshape(-1, 1), testPredict.reshape(-1, 1))
+	print('Train Score: %.2f MAPE' % (trainScoreMAPE))
+	print('Test Score: %.2f MAPE' % (testScoreMAPE))
 	return trainPredict, testPredict
 	
 def PlotValidationTimeSeries(datasetO):
