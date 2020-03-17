@@ -9,20 +9,20 @@
         weekstart week# 18-210                    20-343
         ------------------------------------------------------
         10/feb    1     IntroML1                  IntroML2     
-        17/feb    2     U1.Intro.NN               Lab 1.1      
-        24/feb    3     U2.NN.Archs.Train.Reg     Lab 2.1
-        02/mar    4     U2.NN.Init.Batch.Vanish   Lab 2.2
-        09/mar    5     Labs                      Labs           15/mar deadline U2.Labs             
-        16/mar    6     U3.CNN.ConvOp.Archs       Lab 3.1 
-        23/mar    6     U3.CNN.Classf.Semg.Detect Lab 3.2        30/mar deadline U3.05-U3.11
+        17/feb    2     U1.Intro.NN               Labs      
+        24/feb    3     U2.NN.Archs.Train.Reg     Labs
+        02/mar    4     U2.NN.Init.Batch.Vanish   Labs
+        09/mar    5     U3.Tensorflow             Labs          15/mar deadline U2.Labs            
+        16/mar    6     U4.CNN.ConvOp.Archs       Labs 
+        23/mar    6     U4.CNN.Classf.Semg.Detect Labs          30/mar deadline U3 Labs 
         --------------------- VACACIONES --------------------------------
-        13/abr    8     U3.CNN.Transfer.GANs      Lab 3.3        19/abr deadline U3.15-U3.17
-        20/abr    9     U3.Proyecto               U3.Proyecto
-        27/abr   10     U3.Proyecto               U3.Proyecto    04/may deadline U3.Proyecto
-        04/may   11     U4.RNN.SeqModls.Bprop     Lab 4.1        30/abr presentation selected projects
-        11/may   12     U4.RNN.LSTM.Archs.S2Seq   Lab 4.2          
-        18/may   13     U4.RNN.CNN-LSTM .         Lab 4.3        24/may deadline U4.Labs
-        25/may   14     U4.Proyecto               U4.Proyecto    28/may deadline U4.Proyecto
+        13/abr    8     U4.CNN.Transfer.GANs      Labs          19/abr deadline U4
+        20/abr    9     U4.Proyecto               U4.Proyecto
+        27/abr   10     U4.Proyecto               U4.Proyecto    04/may deadline U3.Proyecto
+        04/may   11     U5.RNN.SeqModls.Bprop     Labs           30/abr presentation selected projects
+        11/may   12     U5.RNN.LSTM.Archs.S2Seq   Labs          
+        18/may   13     U5.RNN.CNN-LSTM .         Labs        24/may deadline U4.Labs
+        25/may   14     U5.Proyecto               U5.Proyecto    28/may deadline U4.Proyecto
     
 ## Evaluación
  
