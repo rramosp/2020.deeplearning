@@ -26,11 +26,11 @@
     
 ## Evaluación
  
-     20% Lab1 + Lab 2
-     15% Lab 3
+     20% Lab1 + Lab 2 + Lab 3
      15% Lab 4
-     25% U3.Proyecto
+     15% Lab 5
      25% U4.Proyecto
+     25% U5.Proyecto
      
 ## Proyectos
 
