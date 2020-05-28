@@ -14,7 +14,7 @@
         02/mar    4     U2.NN.Init.Batch.Vanish   Labs 
         09/mar    5     U3.Tensorflow             Labs           15/mar deadline U2.Labs            
         16/mar    6     U4.CNN.ConvOp.Archs       Labs 
-        23/mar    6     U4.CNN.Classf.Semg.Detect Labs           30/mar deadline U3 Labs 
+        23/mar    7     U4.CNN.Classf.Semg.Detect Labs           30/mar deadline U3 Labs 
         --------------------- VACACIONES --------------------------------
         13/abr    8     U4.CNN.Transfer.GANs      Labs           19/abr deadline U4
         20/abr    9     U4.Proyecto               U4.Proyecto
