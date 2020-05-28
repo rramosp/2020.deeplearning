@@ -22,9 +22,9 @@
         04/may   11     U5.RNN.SeqModls.Bprop     Labs           30/abr presentation selected projects
         11/may   12     U5.RNN.LSTM.Archs.S2Seq   Labs          
         18/may   13     U5.RNN.CNN-LSTM .         Labs           24/may deadline U5.Labs
-        25/may   14     U5.Proyect                U5.Proyect     28/may deadline U5.Proyect
-	01/jun	 15     U5.Proyect                U5.Proyect     05/jun deadline U5.Proyect
-								 06/jun presentation selected projects     
+        25/may   14     U5.Proyect                U5.Proyect     
+	    01/jun	 15     U5.Proyect                U5.Proyect     08/jun deadline U5.Proyect
+                                                                 09/jun presentation selected projects     
     
 ## Evaluación
  
