@@ -17,14 +17,14 @@
         23/mar    6     U4.CNN.Classf.Semg.Detect Labs           30/mar deadline U3 Labs 
         --------------------- VACACIONES --------------------------------
         13/abr    8     U4.CNN.Transfer.GANs      Labs           19/abr deadline U4
-        20/abr    9     U4.Proyecto               U4.Proyecto    
+        20/abr    9     U4.Proyecto               U4.Proyecto
         27/abr   10     U4.Proyecto               U4.Proyecto    04/may deadline U4.Proyecto
         04/may   11     U5.RNN.SeqModls.Bprop     Labs           30/abr presentation selected projects
-        11/may   12     U5.RNN.LSTM.Archs.S2Seq   Labs          
+        11/may   12     U5.RNN.LSTM.Archs.S2Seq   Labs
         18/may   13     U5.RNN.CNN-LSTM .         Labs           24/may deadline U5.Labs
-        25/may   14     U5.Proyect                U5.Proyect     
+        25/may   14     U5.Proyect                U5.Proyect
 	    01/jun	 15     U5.Proyect                U5.Proyect     08/jun deadline U5.Proyect
-                                                                 09/jun presentation selected projects     
+                                                                 09/jun presentation selected projects
     
 ## Evaluación
  
